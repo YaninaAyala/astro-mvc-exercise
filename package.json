@@ -1,0 +1,19 @@
+{
+  "name": "astro-mvc-exercise",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\"> Astro Database API </h1>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
