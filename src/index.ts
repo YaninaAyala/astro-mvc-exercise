@@ -2,35 +2,27 @@ import express, { json } from "express";
 import userDb from "./database/users.json";
 import chartsDb from "./database/natal-charts.json"
 
-// import studentsRouter from "./routes/students";
-// import teachersRouter from "./routes/teachers"
-// import usersRouter from "./routes/users"
+import chartsRouter from "./routes/chart-router";
+import usersRouter from "./routes/user-router";
 
-// const PORT = 8080;
-// export const app = express();
+const PORT = 8080;
+export const app = express();
 
+app.use(json());
 
-// function addProperty(request, response, next) {
-//     request.user = "Jime";
+app.use("/api/charts", chartsRouter);
+app.use("/api/users", usersRouter);
 
-//     next();
-// }
+app.get("/", (request: any, response) => {
+    response.status(200).json({ message: "soy la raíz" });
+});
 
-// app.use(json());
-// app.use(addProperty);
+app.get("/api", (request: any, response) => {
+    console.log(userDb, chartsDb);
+    
+    //response.status(200).json(db.description);
+});
 
-// app.get("/", (request: any, response) => {
-//     response.status(200).json({ message: "soy la raíz" });
-// });
-
-// app.get("/api", (request: any, response) => {
-//     response.status(200).json(db.description);
-// });
-
-// app.use("/api/students", studentsRouter)
-// app.use("/api/teachers", teachersRouter)
-// app.use("/api/users", usersRouter)
-
-// app.listen(PORT, () => {
-//     console.log("Server listening on port:", PORT);
-// });
+app.listen(PORT, () => {
+    console.log("Server listening on port:", PORT);
+});
